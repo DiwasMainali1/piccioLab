@@ -1,7 +1,9 @@
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/500.css';
+import '@fontsource/inter/700.css';
 import React, { useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { Link } from 'react-scroll';
-import { GiBubblingFlask } from "react-icons/gi";
 
 const NavBar = () => {
   const [nav, setNav] = useState(false);
@@ -9,19 +11,27 @@ const NavBar = () => {
   const links = [
     {
       id: 1,
-      link: 'home',
+      link: 'About us',
     },
     {
       id: 2,
-      link: 'Technology',
+      link: 'People',
     },
     {
       id: 3,
-      link: 'Team',
+      link: 'Research',
     },
     {
       id: 4,
-      link: 'contact',
+      link: 'Media',
+    },
+    {
+        id: 5,
+        link: 'Join us',
+    },
+    {
+        id: 6,
+        link: 'Contact',
     },
   ];
 
@@ -29,11 +39,10 @@ const NavBar = () => {
 
   return (
     <div className="z-20 flex justify-between items-center w-full h-20
-    px-4 text-black bg-gray-300 fixed">
+    px-4 text-black bg-gray-300 fixed font-inter">
         <div>
             <h1 className="flex items-center text-3xl ml-2 font-bold select-none">
-                Piccio Labs
-                <GiBubblingFlask className="ml-3" style={{ color: 'green' }} />
+                Piccio Lab
             </h1>
         </div>
 
