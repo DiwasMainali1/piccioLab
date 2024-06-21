@@ -12,17 +12,27 @@ const NavBar = () => {
   ];
 
   return (
-    <nav className="bg-gray-300 p-4">
-      <ul className="flex justify-center space-x-4">
-        {links.map((link) => (
-          <li key={link.id}>
-            <Link to={link.path} className="text-black hover:text-gray-600">
-              {link.name}
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </nav>
+    <header className="bg-white shadow-sm">
+      <div className="container mx-auto px-4 py-3 flex justify-between items-center">
+        <Link to="/" className="flex items-center">
+          <span className="text-2xl font-bold text-blue-600">Piccio Lab</span>
+        </Link>
+        <nav>
+          <ul className="flex space-x-6">
+            {links.map((link) => (
+              <li key={link.id}>
+                <Link 
+                  to={link.path} 
+                  className="text-gray-600 hover:text-blue-600 transition duration-300"
+                >
+                  {link.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
+    </header>
   );
 };
 
