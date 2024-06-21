@@ -7,7 +7,7 @@ import Laura from '../assets/laura.jpg';
 
 const Home = () => {
   return (
-    <div id="home" className="bg-gray-100 pt-20"> {/* Added id and pt-20 for navbar space */}
+    <div id="home" className="bg-gray-100"> 
       <div className="main relative">
         <img src={image} alt="Background" className="w-full h-auto object-cover" />
         <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center bg-gradient-to-r from-black via-transparent to-black bg-opacity-70">
