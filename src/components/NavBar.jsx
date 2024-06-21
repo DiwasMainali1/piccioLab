@@ -1,88 +1,28 @@
-import '@fontsource/inter/400.css';
-import '@fontsource/inter/500.css';
-import '@fontsource/inter/700.css';
-import React, { useState } from 'react';
-import { FaBars, FaTimes } from 'react-icons/fa';
-import { Link } from 'react-scroll';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const NavBar = () => {
-  const [nav, setNav] = useState(false);
-
   const links = [
-    {
-      id: 1,
-      link: 'About us',
-    },
-    {
-      id: 2,
-      link: 'People',
-    },
-    {
-      id: 3,
-      link: 'Research',
-    },
-    {
-      id: 4,
-      link: 'Media',
-    },
-    {
-        id: 5,
-        link: 'Join us',
-    },
-    {
-        id: 6,
-        link: 'Contact',
-    },
+    { id: 1, name: 'Home', path: '/' },
+    { id: 2, name: 'About', path: '/about' },
+    { id: 3, name: 'People', path: '/people' },
+    { id: 4, name: 'Research', path: '/research' },
+    { id: 5, name: 'Media', path: '/media' },
+    { id: 6, name: 'Contact', path: '/contact' },
   ];
 
-  const handleClick = () => setNav(!nav);
-
   return (
-    <div className="z-20 flex justify-between items-center w-full h-20
-    px-4 text-black bg-gray-300 fixed font-inter">
-        <div>
-            <h1 className="flex items-center text-3xl ml-2 font-bold select-none">
-                Piccio Lab
-            </h1>
-        </div>
-
-        <ul className="hidden md:flex">
-            {links.map(({ id, link }) => (
-                <li
-                    key={id}
-                    className="px-6 cursor-pointer capitalize
-                    font-medium text-gray-500 hover:scale-110 duration-200"
-                >
-                <Link to={link} smooth duration={600}>
-                    {link}
-                </Link>
-                </li>
-            ))}
-        </ul>
-        <div onClick={() => setNav(!nav)} className="cursor-pointer pr-4 z-10 text-gray-500 md:hidden">
-                {nav ? <FaTimes size={30} /> : <FaBars size={30} /> }
-        </div>
-
-      {nav && (
-        <ul className="flex flex-col justify-center items-center absolute top-0 left-0 w-full h-screen bg-gradient-to-b from-black to-gray-800 text-gray-500">
-          {links.map(({ id, link }) => (
-            <li
-              key={id}
-              className="px-4 cursor-pointer capitalize py-6 text-4xl"
-            >
-              <Link
-                onClick={handleClick}
-                to={link}
-                smooth
-                duration={500}
-              >
-                {link}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
+    <nav className="bg-gray-300 p-4">
+      <ul className="flex justify-center space-x-4">
+        {links.map((link) => (
+          <li key={link.id}>
+            <Link to={link.path} className="text-black hover:text-gray-600">
+              {link.name}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </nav>
   );
 };
 
