@@ -19,7 +19,7 @@ const Home = () => {
             <p className="text-xl md:text-2xl mb-8 opacity-80">
               Advancing neurodegenerative disease research
             </p>
-            <a href="#introduction" className="bg-white text-black py-3 px-6 rounded-full text-lg font-bold hover:bg-red-700 transition duration-300">
+            <a href="#introduction" className="bg-white text-black py-3 px-6 rounded-full text-lg font-bold hover:text-white hover:bg-red-700 transition duration-300">
               Learn More
             </a>
           </div>
