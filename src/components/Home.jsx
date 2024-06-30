@@ -2,6 +2,7 @@ import '@fontsource/inter/400.css';
 import '@fontsource/inter/500.css';
 import '@fontsource/inter/700.css';
 import React from 'react';
+import { Link as ScrollLink } from 'react-scroll';
 import image from '../assets/image.png';
 import Laura from '../assets/laura.jpg';
 import Network from '../assets/network.jpg';
@@ -19,14 +20,19 @@ const Home = () => {
             <p className="text-xl md:text-2xl mb-8 opacity-80">
               Advancing Neuroimmunology Research
             </p>
-            <a href="#introduction" className="bg-white text-black py-3 px-6 rounded-full text-lg font-bold hover:text-white hover:bg-red-700 transition duration-300">
+            <ScrollLink 
+              to="introduction" 
+              smooth={true} 
+              duration={800} 
+              className="bg-white text-black py-3 px-6 rounded-full text-lg font-bold hover:text-white hover:bg-red-700 transition duration-300 cursor-pointer inline-block"
+            >
               Learn More
-            </a>
+            </ScrollLink>
           </div>
         </div>
       </div>
 
-      <div id="introduction" className="py-16 md:py-24 bg-white " style={{ backgroundImage: `url(${Network})` }}>
+      <div id="introduction" className="py-16 md:py-24 bg-white" style={{ backgroundImage: `url(${Network})` }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center justify-between bg-gray-50 rounded-3xl py-12 px-8 md:px-12 shadow-xl">
             <div className="w-full md:w-1/2 mb-10 md:mb-0 md:pr-8">

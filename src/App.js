@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import { HashRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import Home from './components/Home';
 import About from './components/About';
@@ -15,25 +15,25 @@ import '@fontsource/inter/500.css';
 import '@fontsource/inter/700.css';
 
 function App() {
-  return (
-    <Router basename="/piccioLab">
-      <div className="font-inter flex flex-col min-h-screen">
-        <NavBar />
-        <div className="flex-grow pt-20"> 
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/people" element={<People />} />
-            <Route path="/research" element={<Research />} />
-            <Route path="/media" element={<Media />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="*" element={<Navigate to="/" replace />} />
-          </Routes>
+    return (
+      <Router>
+        <div className="font-inter flex flex-col min-h-screen">
+          <NavBar />
+          <div className="flex-grow pt-20"> 
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/people" element={<People />} />
+              <Route path="/research" element={<Research />} />
+              <Route path="/media" element={<Media />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="*" element={<Navigate to="/" replace />} />
+            </Routes>
+          </div>
+          <Footer />
         </div>
-        <Footer />
-      </div>
-    </Router>
-  );
-}
+      </Router>
+    );
+  }
 
 export default App;

@@ -19,8 +19,8 @@ const NavBar = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-20 bg-gray-100 text-black">
       <div className="flex justify-between items-center w-full h-20 px-4 font-inter">
-        <Link to="/" className="flex items-center">
-          <h1 className="text-3xl ml-2 font-bold select-none">Piccio Lab</h1>
+      <Link to="/" className="flex items-center">
+        <h1 className="text-3xl ml-2 font-bold select-none">Piccio Lab</h1>
         </Link>
         
         <nav className="hidden md:flex">
