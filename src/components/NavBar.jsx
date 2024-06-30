@@ -6,7 +6,7 @@ const NavBar = () => {
   const [nav, setNav] = useState(false);
   
   const links = [
-    { id: 1, name: 'Home', path: '/piccioLab' },
+    { id: 1, name: 'Home', path: '/' },
     { id: 2, name: 'About', path: '/about' },
     { id: 3, name: 'People', path: '/people' },
     { id: 4, name: 'Research', path: '/research' },
@@ -19,7 +19,7 @@ const NavBar = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-20 bg-gray-100 text-black">
       <div className="flex justify-between items-center w-full h-20 px-4 font-inter">
-        <Link to="/piccioLab" className="flex items-center">
+        <Link to="/" className="flex items-center">
           <h1 className="text-3xl ml-2 font-bold select-none">Piccio Lab</h1>
         </Link>
         
