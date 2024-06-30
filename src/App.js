@@ -21,7 +21,7 @@ function App() {
         <NavBar />
         <div className="flex-grow pt-20"> 
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/piccioLab" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/people" element={<People />} />
             <Route path="/research" element={<Research />} />
