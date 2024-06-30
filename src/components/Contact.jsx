@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Location from '../assets/location.jpg';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -42,9 +43,29 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen bg-white py-12" id="Contact">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-bold mb-8 text-center">Contact Us</h2>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 className="text-4xl font-bold mb-12 text-center">Contact Us</h2>
+        
+        {/* Our Office Section */}
+        <div className="mb-16">
+          <div className="flex flex-col md:flex-row items-center justify-between">
+            <div className="w-full md:w-1/2 mb-8 md:mb-0">
+              <img src={Location} alt="Office Location" className="w-full h-auto rounded-lg shadow-lg" />
+            </div>
+            <div className="w-full md:w-1/2 md:pl-8">
+              <p className="text-lg text-gray-700 leading-relaxed">
+                <strong>Our Office:</strong><br />
+                Level 5 West, Charles Perkins Centre,<br />
+                University Pl, Camperdown,<br />
+                Sydney NSW, 2006, Australia
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Contact Form Section */}
         <div className="bg-gray-100 rounded-lg p-8">
+          <h3 className="text-2xl font-semibold mb-6 text-center">Send us a Message</h3>
           <form onSubmit={handleSubmit}>
             <div className="mb-4">
               <label htmlFor="name" className="block text-gray-700 font-bold mb-2">Name</label>
