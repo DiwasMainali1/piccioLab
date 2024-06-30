@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/piccioLab/static/css/main.8e07408d.css",
-    "main.js": "/piccioLab/static/js/main.0caeed02.js",
+    "main.js": "/piccioLab/static/js/main.c626a0db.js",
     "static/media/image.png": "/piccioLab/static/media/image.f18ef128d266442a8f7a.png",
     "static/media/J.jpg": "/piccioLab/static/media/J.f600ecf12a43dc5e5177.jpg",
     "static/media/About1.jpg": "/piccioLab/static/media/About1.f51614509804fd2cd6ce.jpg",
@@ -70,10 +70,10 @@
     "static/media/inter-vietnamese-400-normal.woff2": "/piccioLab/static/media/inter-vietnamese-400-normal.5952d3d3c5df5a2f8e09.woff2",
     "index.html": "/piccioLab/index.html",
     "main.8e07408d.css.map": "/piccioLab/static/css/main.8e07408d.css.map",
-    "main.0caeed02.js.map": "/piccioLab/static/js/main.0caeed02.js.map"
+    "main.c626a0db.js.map": "/piccioLab/static/js/main.c626a0db.js.map"
   },
   "entrypoints": [
     "static/css/main.8e07408d.css",
-    "static/js/main.0caeed02.js"
+    "static/js/main.c626a0db.js"
   ]
 }
