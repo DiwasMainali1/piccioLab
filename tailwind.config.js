@@ -7,6 +7,8 @@ module.exports = {
         extend: {
           animation: {
             float: 'float 6s ease-in-out infinite',
+          },       fontFamily: {
+            inter: ['Inter', 'sans-serif'],
           },
           keyframes: {
             float: {

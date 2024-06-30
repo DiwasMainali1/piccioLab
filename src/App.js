@@ -9,6 +9,11 @@ import Media from './components/Media';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
+// Import Inter font
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/500.css';
+import '@fontsource/inter/700.css';
+
 function App() {
   return (
     <Router>
