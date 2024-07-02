@@ -35,7 +35,7 @@ const Home = () => {
           <div className="flex flex-col md:flex-row items-center justify-between bg-gray-50 rounded-3xl py-12 px-8 md:px-12 shadow-xl">
             <div className="w-full md:w-full mb-10 md:mb-0 md:pr-8">
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center text-red-600">About Us</h2>
-              <p className="text-justify text-base md:text-lg text-gray-700 leading-relaxed">
+              <p className="text-left text-base md:text-lg text-gray-700 leading-relaxed">
                 Piccio Lab is based at the Charles Perkins Center, The University of Sydney, where we are dedicated to advancing research in immune-inflammatory and neurodegenerative mechanisms, particularly those leading to multiple sclerosis (MS) and other neurological diseases. Our primary mission is to accelerate MS research with the ultimate goal of prevention, improved treatments, and finding a cure for this debilitating condition.
               </p>
               <p className="text-justify text-base md:text-lg text-gray-700 leading-relaxed mt-4">
