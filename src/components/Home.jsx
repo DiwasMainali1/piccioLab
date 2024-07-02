@@ -24,7 +24,7 @@ const Home = () => {
               to="introduction" 
               smooth={true} 
               duration={800} 
-              className="bg-white text-black py-3 px-6 rounded-full text-lg font-bold hover:text-white hover:bg-red-700 transition duration-300 cursor-pointer inline-block"
+              className="bg-white text-black py-3 px-6 rounded-full text-lg font-bold hover:text-white hover:bg-red-600 transition duration-300 cursor-pointer inline-block"
             >
               Learn More
             </ScrollLink>
