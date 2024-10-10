@@ -1,5 +1,7 @@
 # Piccio Labs Website
 
+Website: https://diwasmainali1.github.io/piccioLab/
+
 This is a website built using React and Tailwind CSS, showcasing everything about Piccio Labs
 
 ## Technologies Used
