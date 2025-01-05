@@ -16,7 +16,7 @@ const Media = () => {
   const [imagesLoaded, setImagesLoaded] = useState(false);
   const [loadingProgress, setLoadingProgress] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
-  const images = [A, B, C, D, E, F, G, H, I, J];
+  const images = useMemo(() => [A, B, C, D, E, F, G, H, I, J], []);
 
   // Preload images
   useEffect(() => {
