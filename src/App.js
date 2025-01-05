@@ -8,31 +8,33 @@ import Research from './components/Research';
 import Media from './components/Media';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
 
 import '@fontsource/inter/400.css';
 import '@fontsource/inter/500.css';
 import '@fontsource/inter/700.css';
 
 function App() {
-    return (
-      <Router>
-        <div className="font-inter flex flex-col min-h-screen">
-          <NavBar />
-          <div className="flex-grow pt-20"> 
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/people" element={<People />} />
-              <Route path="/research" element={<Research />} />
-              <Route path="/media" element={<Media />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="*" element={<Navigate to="/" replace />} />
-            </Routes>
-          </div>
-          <Footer />
+  return (
+    <Router>
+      <ScrollToTop />
+      <div className="font-inter flex flex-col min-h-screen">
+        <NavBar />
+        <div className="flex-grow pt-20">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/people" element={<People />} />
+            <Route path="/research" element={<Research />} />
+            <Route path="/media" element={<Media />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
         </div>
-      </Router>
-    );
-  }
+        <Footer />
+      </div>
+    </Router>
+  );
+}
 
 export default App;

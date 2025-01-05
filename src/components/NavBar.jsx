@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -7,6 +7,7 @@ const NavBar = () => {
   const [nav, setNav] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
   
   const links = [
     { id: 1, name: 'Home', path: '/' },
@@ -28,6 +29,24 @@ const NavBar = () => {
 
   const handleClick = () => setNav(!nav);
 
+  const handleNavigation = (path) => {
+    if (location.pathname === path) {
+      // If we're already on the page, just scroll to top
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+      });
+    } else {
+      // If it's a different page, navigate and the ScrollToTop component will handle the scroll
+      navigate(path);
+    }
+    // Close mobile menu if open
+    if (nav) {
+      handleClick();
+    }
+  };
+
   return (
     <motion.header 
       initial={{ y: -100 }}
@@ -38,21 +57,24 @@ const NavBar = () => {
       } transition-all duration-300`}
     >
       <div className="flex justify-between items-center w-full h-20 px-4 font-inter max-w-7xl mx-auto">
-        <Link to="/" className="flex items-center">
+        <div 
+          onClick={() => handleNavigation('/')} 
+          className="flex items-center cursor-pointer"
+        >
           <motion.h1 
             whileHover={{ scale: 1.05 }}
             className="text-3xl ml-2 font-bold select-none text-red-600"
           >
             Piccio Lab
           </motion.h1>
-        </Link>
+        </div>
         
         <nav className="hidden md:flex">
           <ul className="flex">
             {links.map((link) => (
               <motion.li key={link.id} whileHover={{ scale: 1.1 }}>
-                <Link 
-                  to={link.path} 
+                <button 
+                  onClick={() => handleNavigation(link.path)}
                   className={`px-4 cursor-pointer capitalize font-medium ${
                     location.pathname === link.path
                       ? 'text-red-600'
@@ -60,7 +82,7 @@ const NavBar = () => {
                   } transition-colors duration-300`}
                 >
                   {link.name}
-                </Link>
+                </button>
               </motion.li>
             ))}
           </ul>
@@ -86,12 +108,12 @@ const NavBar = () => {
                     className="px-4 cursor-pointer capitalize py-6 text-4xl"
                     whileHover={{ scale: 1.1, color: '#DC2626' }}
                   >
-                    <Link 
-                      to={link.path} 
-                      onClick={handleClick}
+                    <button 
+                      onClick={() => handleNavigation(link.path)}
+                      className="focus:outline-none"
                     >
                       {link.name}
-                    </Link>
+                    </button>
                   </motion.li>
                 ))}
               </ul>
