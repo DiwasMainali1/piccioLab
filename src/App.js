@@ -15,20 +15,44 @@ import '@fontsource/inter/500.css';
 import '@fontsource/inter/700.css';
 
 function App() {
+  const basename = process.env.NODE_ENV === 'development' ? '/piccioLab' : '/';
+
   return (
-    <Router>
+    <Router basename={basename}>
       <ScrollToTop />
       <div className="font-inter flex flex-col min-h-screen">
         <NavBar />
-        <div className="flex-grow pt-20">
+        <div className="flex-grow">
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/people" element={<People />} />
-            <Route path="/research" element={<Research />} />
-            <Route path="/media" element={<Media />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="*" element={<Navigate to="/" replace />} />
+            <Route 
+              path="/" 
+              element={<Home />} 
+            />
+            <Route 
+              path="/about" 
+              element={<About />} 
+            />
+            <Route 
+              path="/people" 
+              element={<People />} 
+            />
+            <Route 
+              path="/research" 
+              element={<Research />} 
+            />
+            <Route 
+              path="/media" 
+              element={<Media />} 
+            />
+            <Route 
+              path="/contact" 
+              element={<Contact />} 
+            />
+            {/* Catch all route - redirects to home */}
+            <Route 
+              path="*" 
+              element={<Navigate to="/" replace />} 
+            />
           </Routes>
         </div>
         <Footer />
