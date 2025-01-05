@@ -1,6 +1,3 @@
-import '@fontsource/inter/400.css';
-import '@fontsource/inter/500.css';
-import '@fontsource/inter/700.css';
 import React, { useState, useEffect } from 'react';
 import { Link as ScrollLink } from 'react-scroll';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -11,6 +8,7 @@ import Network from '../assets/network.jpg';
 const Home = () => {
   const [imagesLoaded, setImagesLoaded] = useState(false);
   const [contentVisible, setContentVisible] = useState(false);
+  const [loadingProgress, setLoadingProgress] = useState(0);
 
   useEffect(() => {
     // Preload all images
@@ -23,6 +21,7 @@ const Home = () => {
         img.src = url;
         img.onload = () => {
           loadedCount++;
+          setLoadingProgress((loadedCount / imageUrls.length) * 100);
           if (loadedCount === imageUrls.length) {
             setImagesLoaded(true);
             // Add a slight delay before showing content for smooth transition
@@ -39,8 +38,27 @@ const Home = () => {
     return () => {
       setImagesLoaded(false);
       setContentVisible(false);
+      setLoadingProgress(0);
     };
   }, []);
+
+  if (!imagesLoaded) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-white">
+        <div className="w-64">
+          <div className="bg-gray-200 rounded-full h-2 mb-4">
+            <motion.div
+              className="bg-red-600 h-2 rounded-full"
+              initial={{ width: 0 }}
+              animate={{ width: `${loadingProgress}%` }}
+              transition={{ duration: 0.3 }}
+            />
+          </div>
+          <p className="text-center text-gray-600">Loading home page...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div id="home" className="bg-gray-100 min-h-screen">
