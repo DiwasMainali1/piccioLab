@@ -42,7 +42,7 @@ const Media = () => {
       setImagesLoaded(false);
       setLoadingProgress(0);
     };
-  }, []);
+  }, [images]);
 
   // Handle automatic slideshow
   useEffect(() => {
