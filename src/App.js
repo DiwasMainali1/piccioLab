@@ -22,7 +22,7 @@ function App() {
       <ScrollToTop />
       <div className="font-inter flex flex-col min-h-screen">
         <NavBar />
-        <div className="flex-grow">
+        <div className="flex-grow pt-20">
           <Routes>
             <Route 
               path="/" 
