@@ -15,7 +15,7 @@ import '@fontsource/inter/500.css';
 import '@fontsource/inter/700.css';
 
 function App() {
-  const basename = process.env.NODE_ENV === 'development' ? '/piccioLab' : '/';
+    const basename = '/';
 
   return (
     <Router basename={basename}>
