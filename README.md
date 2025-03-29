@@ -1,6 +1,6 @@
 # Piccio Labs Website
 
-Website: https://diwasmainali1.github.io/piccioLab/
+Website: [Piccio Lab](https://thepicciolab.netlify.app/)
 
 This is a website built using React and Tailwind CSS, showcasing everything about Piccio Labs
 
