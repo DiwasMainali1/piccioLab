@@ -22,7 +22,7 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8" ?>
       return `
         <url>
           <loc>${baseUrl}${route}</loc>
-          <lastmod>${new Date().toISOString()}</lastmod>
+          <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
           <changefreq>weekly</changefreq>
           <priority>0.8</priority>
         </url>
