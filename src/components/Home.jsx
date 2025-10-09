@@ -135,27 +135,17 @@ const Home = () => {
               </div>
               <div className="w-full md:w-1/2 md:pl-8">
                 <p className="text-left text-base md:text-lg text-gray-700 leading-relaxed">
-                  The Piccio Lab, led by renowned researcher{' '}
-                  <strong>Associate Professor Laura Piccio</strong>, specializes in the study of
-                  neurodegenerative diseases, including Multiple Sclerosis and other neurological
-                  diseases. Our lab has a strong translational approach with the goal to apply
-                  findings from basic research to the clinic.
+                  Our lab investigates the mechanisms driving neuroinflammatory and neurodegenerative processes in multiple sclerosis (MS) and other neurological diseases. A major focus of the lab is to study the interplay between immune responses, metabolism, and diet, and how these factors influence brain health. We have a strong translational approach with the goal to apply findings from basic research to the clinic.
                 </p>
                 <p className="text-left text-base md:text-lg text-gray-700 leading-relaxed mt-4">
-                  Currently, our laboratory has two major areas of interest:
+                  The lab uses biomarker discovery approaches, including analysis of proteins and lipids in serum and cerebrospinal fluid, extracellular vesicle, gut microbiome, and multi-omics platforms, to identify molecular signatures of inflammation and neurodegeneration. By integrating preclinical and clinical studies with systems biology, the team aims to uncover pathways that could be targeted to prevent, halt, or reverse neurological disease progression.
                 </p>
-                <ol className="text-left text-base md:text-lg text-gray-700 leading-relaxed mt-2 list-decimal list-inside">
-                  <li className="mb-2">
-                    The role played by innate immune cells (macrophages, dendritic cells, and
-                    microglia) in MS with a particular interest in the innate immune receptor TREM2.
-                    We are also studying the role of the soluble form of TREM2 as a potential
-                    biomarker in neurological diseases, including Alzheimer's disease.
-                  </li>
-                  <li>
-                    The effects of diet on MS and the complex interplay between the immune system
-                    and metabolism.
-                  </li>
-                </ol>
+                <p className="text-left text-base md:text-lg text-gray-700 leading-relaxed mt-4">
+                  Ongoing projects span from clinical studies in people with MS (exploring dietary interventions, metabolic modulation, and novel therapeutics) to experimental models, where the lab dissects how glial cells (e.g. microglia, astrocytes) contribute to central nervous system injury and repair.
+                </p>
+                <p className="text-left text-base md:text-lg text-gray-700 leading-relaxed mt-4">
+                  Ultimately, the Piccio Lab seeks to translate mechanistic insights into precision medicine strategies, identifying biomarkers that guide treatment and lifestyle interventions to improve outcomes in people with multiple sclerosis and other neuroinflammatory diseases.
+                </p>
               </div>
             </div>
           </motion.div>

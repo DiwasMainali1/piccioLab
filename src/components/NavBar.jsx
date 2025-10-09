@@ -14,8 +14,9 @@ const NavBar = () => {
     { id: 2, name: 'About', path: '/about' },
     { id: 3, name: 'People', path: '/people' },
     { id: 4, name: 'Research', path: '/research' },
-    { id: 5, name: 'Media', path: '/media' },
-    { id: 6, name: 'Contact', path: '/contact' },
+    { id: 5, name: 'Publications', path: '/publications' },
+    { id: 6, name: 'Media', path: '/media' },
+    { id: 7, name: 'Contact', path: '/contact' },
   ];
 
   useEffect(() => {

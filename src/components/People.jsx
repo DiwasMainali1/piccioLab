@@ -58,7 +58,7 @@ const People = () => {
         },
         {
           name: "Lara Rogerson-Wood",
-          position: "Research Assistant",
+          position: "Postdoctoral Research Associate",
           image: Lara,
           email: "lara.rogerson-wood@sydney.edu.au",
           details: "School of Medical Sciences, Faculty of Medicine and Health (FMH)",
@@ -66,7 +66,7 @@ const People = () => {
         },
         {
           name: "Will Boyden",
-          position: "Honours Student",
+          position: "Research Assistant",
           image: Profile,
           email: "will.boyden@sydney.edu.au",
           details: "School of Medical Sciences, Faculty of Medicine and Health (FMH)",
@@ -74,19 +74,27 @@ const People = () => {
         },
         {
           name: "Yifei Zhou",
-          position: "Honours Student",
+          position: "PhD Student",
           image: Profile,
           email: "yifei.zhou@sydney.edu.au",
           details: "School of Medical Sciences, Faculty of Medicine and Health (FMH)",
           projectTitle: "Current Project:"
         },
         {
-          name: "Dayoung Kim",
-          position: "Honours Student",
+          name: "Ms Jia Nasir",
+          position: "Research Focused Academic",
           image: Profile,
-          email: "dayoung.kim@sydney.edu.au",
-          details: "School of Medical Sciences, Faculty of Medicine and Health (FMH)",
+          email: "reeja.nasir@sydney.edu.au",
+          details: "School of Medical Sciences, Faculty of Medicine and Health",
           projectTitle: "Current Project:"
+        },
+        {
+            name: "Jake Thompson",
+            position: "Honours Student",
+            image: Profile,
+            email: "jtho7038@uni.sydney.edu.au",
+            details: "School of Medical Sciences, Faculty of Medicine and Health",
+            projectTitle: "Current Project:"
         },
       ];
 
@@ -261,10 +269,10 @@ const People = () => {
                             </div>
                             <div className="lg:w-2/3 p-8 lg:p-12">
                                 <h3 className="text-3xl font-bold mb-4 text-gray-800">Laura Piccio, MD, PhD</h3>
-                                <p className="text-xl text-red-600 mb-4">Project Lead</p>
+                                <p className="text-xl text-red-600 mb-4">Lab Head</p>
                                 <div className="mb-6">
                                     <p className="text-lg text-gray-700 mb-2">
-                                        Associate Professor<br />
+                                        Professor<br />
                                         NHMRC Principal Research Fellow<br />
                                         School of Medical Sciences<br />
                                         Faculty of Medicine and Health

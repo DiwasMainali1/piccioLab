@@ -5,6 +5,7 @@ import Home from './components/Home';
 import About from './components/About';
 import People from './components/People';
 import Research from './components/Research';
+import Publications from './components/Publications';
 import Media from './components/Media';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
@@ -39,6 +40,10 @@ function App() {
             <Route 
               path="/research" 
               element={<Research />} 
+            />
+            <Route 
+              path="/publications" 
+              element={<Publications />} 
             />
             <Route 
               path="/media" 
