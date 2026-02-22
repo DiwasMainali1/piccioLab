@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link as ScrollLink } from 'react-scroll';
 import { motion, AnimatePresence } from 'framer-motion';
-import image from '../assets/image.png';
+import heroImg from '../assets/image.png';
+import img1 from '../assets/1.png';
+import img2 from '../assets/2.png';
+import img3 from '../assets/3.png';
 import Laura from '../assets/laura.jpg';
 import Network from '../assets/network.jpg';
 
@@ -9,33 +12,39 @@ const Home = () => {
   const [imagesLoaded, setImagesLoaded] = useState(false);
   const [contentVisible, setContentVisible] = useState(false);
   const [loadingProgress, setLoadingProgress] = useState(0);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const coverImages = [heroImg, img1, img2, img3];
 
   useEffect(() => {
-    // Preload all images
-    const imageUrls = [image, Laura, Network];
+    const allImages = [...coverImages, Laura, Network];
     let loadedCount = 0;
 
-    const preloadImages = imageUrls.map(url => {
+    const preloadImages = allImages.map(url => {
       return new Promise((resolve) => {
         const img = new Image();
         img.src = url;
         img.onload = () => {
           loadedCount++;
-          setLoadingProgress((loadedCount / imageUrls.length) * 100);
-          if (loadedCount === imageUrls.length) {
+          setLoadingProgress((loadedCount / allImages.length) * 100);
+          if (loadedCount === allImages.length) {
             setImagesLoaded(true);
-            // Add a slight delay before showing content for smooth transition
             setTimeout(() => setContentVisible(true), 300);
           }
           resolve();
         };
-        img.onerror = resolve; // Handle any loading errors gracefully
+        img.onerror = resolve;
       });
     });
 
     Promise.all(preloadImages);
 
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % coverImages.length);
+    }, 7000);
+
     return () => {
+      clearInterval(interval);
       setImagesLoaded(false);
       setContentVisible(false);
       setLoadingProgress(0);
@@ -54,7 +63,7 @@ const Home = () => {
               transition={{ duration: 0.3 }}
             />
           </div>
-          <p className="text-center text-gray-600">Loading home page...</p>
+          <p className="text-center text-gray-600 font-medium">Loading Piccio Lab...</p>
         </div>
       </div>
     );
@@ -62,53 +71,69 @@ const Home = () => {
 
   return (
     <div id="home" className="bg-gray-100 min-h-screen">
-      <AnimatePresence>
-        {imagesLoaded && (
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            className="main relative h-screen"
+      <div className="relative h-screen overflow-hidden">
+        <AnimatePresence mode="popLayout">
+          <motion.div
+            key={currentImageIndex}
+            initial={{ opacity: 0, scale: 1.1, x: 50 }}
+            animate={{ opacity: 1, scale: 1, x: 0 }}
+            exit={{ opacity: 0, scale: 0.95, x: -50 }}
+            transition={{ 
+              duration: 0.8, 
+              ease: [0.22, 1, 0.36, 1] 
+            }}
+            className="absolute inset-0 w-full h-full"
           >
-            <img 
-              src={image} 
-              alt="Background" 
+            <motion.img
+              src={coverImages[currentImageIndex]}
+              animate={{ scale: 1.1 }}
+              transition={{ duration: 7.5, ease: "linear" }}
               className="w-full h-full object-cover"
-              loading="eager"
-              fetchPriority="high"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-black via-transparent to-black bg-opacity-50 flex items-center justify-center">
-              {contentVisible && (
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.2 }}
-                  className="text-white text-center px-4 sm:px-8 max-w-4xl"
-                >
-                  <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 tracking-wide animate-float">
-                    Welcome to Piccio Lab
-                  </h1>
-                  <p className="text-xl md:text-2xl mb-8 opacity-90">
-                    Advancing Neuroimmunology Research
-                  </p>
-                  <ScrollLink
-                    to="introduction"
-                    smooth={true}
-                    duration={800}
-                    className="bg-white text-black py-3 px-6 rounded-full text-lg font-bold hover:text-white hover:bg-red-600 transition duration-300 cursor-pointer inline-block"
-                  >
-                    Learn More
-                  </ScrollLink>
-                </motion.div>
-              )}
-            </div>
           </motion.div>
-        )}
-      </AnimatePresence>
+        </AnimatePresence>
+        
+        <div className="absolute inset-0 bg-black/40 flex items-center justify-center z-10">
+          <AnimatePresence>
+            {contentVisible && (
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+                className="text-white text-center px-4"
+              >
+                <h1 className="text-5xl md:text-8xl font-bold mb-6 tracking-tight">
+                  Piccio Lab
+                </h1>
+                <p className="text-xl md:text-3xl mb-10 font-light max-w-2xl mx-auto">
+                  Advancing Neuroimmunology & Translational Research
+                </p>
+                <ScrollLink
+                  to="introduction"
+                  smooth={true}
+                  duration={1000}
+                  className="bg-red-600 text-white py-4 px-10 rounded-full text-lg font-bold hover:bg-white hover:text-red-600 transition-all duration-300 cursor-pointer inline-block shadow-2xl"
+                >
+                  Explore Our Work
+                </ScrollLink>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex space-x-3 z-20">
+          {coverImages.map((_, idx) => (
+            <div 
+              key={idx}
+              className={`h-1.5 transition-all duration-500 rounded-full ${idx === currentImageIndex ? 'w-10 bg-red-600' : 'w-4 bg-white/30'}`}
+            />
+          ))}
+        </div>
+      </div>
 
       <div
         id="introduction"
-        className="py-16 md:py-24 bg-white bg-cover bg-center"
+        className="py-20 md:py-32 bg-fixed bg-cover bg-center"
         style={{ backgroundImage: `url(${Network})` }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -117,34 +142,40 @@ const Home = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="bg-white rounded-3xl py-12 px-8 md:px-12 shadow-xl"
+            className="bg-white/95 backdrop-blur-sm rounded-3xl py-16 px-8 md:px-20 shadow-xl"
           >
-            <h2 className="text-center text-3xl md:text-4xl font-bold mb-6 text-red-600">
+            <h2 className="text-3xl md:text-5xl font-bold mb-12 text-red-600 border-b-2 border-red-100 pb-4 inline-block">
               Introduction
             </h2>
-            <div className="flex flex-col md:flex-row items-center justify-between">
-              <div className="w-full md:w-1/2 flex justify-center mb-8 md:mb-0">
-                <motion.img
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.3 }}
-                  src={Laura}
-                  alt="Laura Piccio"
-                  className="w-4/5 h-auto rounded-xl shadow-lg object-cover"
-                  loading="lazy"
-                />
+            <div className="flex flex-col lg:flex-row gap-12 items-start">
+              <div className="w-full lg:w-2/5 flex justify-center">
+                <motion.div
+                  whileHover={{ scale: 1.02 }}
+                  className="relative w-full"
+                >
+                  <img
+                    src={Laura}
+                    alt="Laura Piccio"
+                    className="rounded-2xl shadow-2xl w-full object-cover aspect-[4/5]"
+                  />
+                  <div className="absolute -bottom-6 -right-6 bg-red-600 text-white p-6 rounded-xl hidden md:block">
+                    <p className="font-bold text-xl">Dr. Laura Piccio</p>
+                    <p className="text-sm opacity-90">Principal Investigator</p>
+                  </div>
+                </motion.div>
               </div>
-              <div className="w-full md:w-1/2 md:pl-8">
-                <p className="text-left text-base md:text-lg text-gray-700 leading-relaxed">
-                  Our lab investigates the mechanisms driving neuroinflammatory and neurodegenerative processes in multiple sclerosis (MS) and other neurological diseases. A major focus of the lab is to study the interplay between immune responses, metabolism, and diet, and how these factors influence brain health. We have a strong translational approach with the goal to apply findings from basic research to the clinic.
+              <div className="w-full lg:w-3/5 space-y-6">
+                <p className="text-lg md:text-xl text-gray-800 leading-relaxed font-light">
+                  Our lab investigates the mechanisms driving neuroinflammatory and neurodegenerative processes in <span className="font-semibold">multiple sclerosis (MS)</span> and other neurological diseases. A major focus of the lab is to study the interplay between immune responses, metabolism, and diet, and how these factors influence brain health.
                 </p>
-                <p className="text-left text-base md:text-lg text-gray-700 leading-relaxed mt-4">
-                  The lab uses biomarker discovery approaches, including analysis of proteins and lipids in serum and cerebrospinal fluid, extracellular vesicle, gut microbiome, and multi-omics platforms, to identify molecular signatures of inflammation and neurodegeneration. By integrating preclinical and clinical studies with systems biology, the team aims to uncover pathways that could be targeted to prevent, halt, or reverse neurological disease progression.
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  The lab uses biomarker discovery approaches, including analysis of proteins and lipids in serum and cerebrospinal fluid, extracellular vesicle, gut microbiome, and multi-omics platforms, to identify molecular signatures of inflammation and neurodegeneration.
                 </p>
-                <p className="text-left text-base md:text-lg text-gray-700 leading-relaxed mt-4">
-                  Ongoing projects span from clinical studies in people with MS (exploring dietary interventions, metabolic modulation, and novel therapeutics) to experimental models, where the lab dissects how glial cells (e.g. microglia, astrocytes) contribute to central nervous system injury and repair.
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  Ongoing projects span from clinical studies in people with MS to experimental models, where the lab dissects how glial cells like <span className="italic text-red-600 font-medium">microglia and astrocytes</span> contribute to central nervous system injury and repair.
                 </p>
-                <p className="text-left text-base md:text-lg text-gray-700 leading-relaxed mt-4">
-                  Ultimately, the Piccio Lab seeks to translate mechanistic insights into precision medicine strategies, identifying biomarkers that guide treatment and lifestyle interventions to improve outcomes in people with multiple sclerosis and other neuroinflammatory diseases.
+                <p className="text-lg text-gray-700 leading-relaxed font-medium">
+                  Ultimately, the Piccio Lab seeks to translate mechanistic insights into precision medicine strategies to improve outcomes in people with neuroinflammatory diseases.
                 </p>
               </div>
             </div>
