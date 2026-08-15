@@ -8,13 +8,13 @@ import img3 from '../assets/3.png';
 import Laura from '../assets/laura.webp';
 import Network from '../assets/network.jpg';
 
+const coverImages = [heroImg, img1, img2, img3];
+
 const Home = () => {
   const [imagesLoaded, setImagesLoaded] = useState(false);
   const [contentVisible, setContentVisible] = useState(false);
   const [loadingProgress, setLoadingProgress] = useState(0);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
-  const coverImages = [heroImg, img1, img2, img3];
 
   useEffect(() => {
     const allImages = [...coverImages, Laura, Network];
