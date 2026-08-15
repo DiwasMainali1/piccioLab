@@ -5,7 +5,7 @@ import heroImg from '../assets/image.png';
 import img1 from '../assets/1.png';
 import img2 from '../assets/2.png';
 import img3 from '../assets/3.png';
-import Laura from '../assets/laura.jpg';
+import Laura from '../assets/laura.webp';
 import Network from '../assets/network.jpg';
 
 const Home = () => {
@@ -53,7 +53,7 @@ const Home = () => {
 
   if (!imagesLoaded) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-white">
+      <div className="min-h-screen flex items-center justify-center lab-page-bg">
         <div className="w-64">
           <div className="bg-gray-200 rounded-full h-2 mb-4">
             <motion.div
@@ -70,7 +70,7 @@ const Home = () => {
   }
 
   return (
-    <div id="home" className="bg-gray-100 min-h-screen">
+    <div id="home" className="lab-page-bg min-h-screen">
       <div className="relative h-screen overflow-hidden">
         <AnimatePresence mode="popLayout">
           <motion.div
@@ -164,18 +164,18 @@ const Home = () => {
                   </div>
                 </motion.div>
               </div>
-              <div className="w-full lg:w-3/5 space-y-6">
-                <p className="text-lg md:text-xl text-gray-800 leading-relaxed font-light">
-                  Our lab investigates the mechanisms driving neuroinflammatory and neurodegenerative processes in <span className="font-semibold">multiple sclerosis (MS)</span> and other neurological diseases. A major focus of the lab is to study the interplay between immune responses, metabolism, and diet, and how these factors influence brain health.
+              <div className="w-full lg:w-3/5 space-y-6 text-lg text-gray-700 leading-relaxed">
+                <p>
+                  We investigate the mechanisms driving neuroinflammatory and neurodegenerative processes in multiple sclerosis (MS) and other neurological diseases, with a focus on how immune responses, metabolism, and diet shape brain health.
                 </p>
-                <p className="text-lg text-gray-700 leading-relaxed">
-                  The lab uses biomarker discovery approaches, including analysis of proteins and lipids in serum and cerebrospinal fluid, extracellular vesicle, gut microbiome, and multi-omics platforms, to identify molecular signatures of inflammation and neurodegeneration.
+                <p>
+                  Our work uses biomarker discovery approaches, including analysis of proteins and lipids in serum and cerebrospinal fluid, extracellular vesicles, the gut microbiome, and multi-omics platforms, to identify molecular signatures of inflammation and neurodegeneration.
                 </p>
-                <p className="text-lg text-gray-700 leading-relaxed">
-                  Ongoing projects span from clinical studies in people with MS to experimental models, where the lab dissects how glial cells like <span className="italic text-red-600 font-medium">microglia and astrocytes</span> contribute to central nervous system injury and repair.
+                <p>
+                  Ongoing projects span clinical studies in people with MS and experimental models that help us understand how glial cells such as microglia and astrocytes contribute to central nervous system injury and repair.
                 </p>
-                <p className="text-lg text-gray-700 leading-relaxed font-medium">
-                  Ultimately, the Piccio Lab seeks to translate mechanistic insights into precision medicine strategies to improve outcomes in people with neuroinflammatory diseases.
+                <p>
+                  Ultimately, we aim to translate these insights into precision medicine strategies that improve outcomes for people living with neuroinflammatory diseases.
                 </p>
               </div>
             </div>

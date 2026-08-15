@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MapPin, Mail, Phone } from 'lucide-react';
+import { ExternalLink, MapPin, Mail, Phone } from 'lucide-react';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -79,7 +79,20 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email Us",
-      content: ["info@example.com"]
+      content: ["picciolab@groups.sydney.edu.au"],
+      href: "mailto:picciolab@groups.sydney.edu.au"
+    },
+    {
+      icon: ExternalLink,
+      title: "Twitter Profile",
+      content: ["x.com/laurapiccio"],
+      href: "https://x.com/laurapiccio"
+    },
+    {
+      icon: ExternalLink,
+      title: "MS Australia Profile",
+      content: ["Laura Piccio researcher profile"],
+      href: "https://www.msaustralia.org.au/researcher/laura-piccio/"
     }
   ];
 
@@ -94,7 +107,7 @@ const Contact = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="min-h-screen bg-gray-50 py-16"
+      className="min-h-screen lab-page-bg py-16"
       id="contact"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -131,9 +144,20 @@ const Contact = () => {
                   <div>
                     <h4 className="font-medium text-gray-900">{info.title}</h4>
                     <div className="text-gray-600 mt-2">
-                      {info.content.map((line, i) => (
-                        <p key={i}>{line}</p>
-                      ))}
+                      {info.href ? (
+                        <a
+                          href={info.href}
+                          target={info.href.startsWith('mailto:') ? undefined : '_blank'}
+                          rel={info.href.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
+                          className="hover:text-blue-700 transition"
+                        >
+                          {info.content[0]}
+                        </a>
+                      ) : (
+                        info.content.map((line, i) => (
+                          <p key={i}>{line}</p>
+                        ))
+                      )}
                     </div>
                   </div>
                 </motion.div>

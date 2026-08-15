@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { ExternalLink } from 'lucide-react';
 import Laura from '../assets/LauraP.jpg';
 import Monakesh from '../assets/Monakesh.jpg';
 import Claire from '../assets/Claire.jpg';
@@ -7,7 +8,10 @@ import Angie from '../assets/Angie.jpg';
 import Yvone from '../assets/Yvone.jpg';
 import Drishya from '../assets/Drishya.jpg';
 import Lara from '../assets/Lara.jpg';
-import Profile from '../assets/Profile.webp';
+import Yifei from '../assets/yifen.webp';
+import Taslima from '../assets/Taslima-Eva (1).webp';
+import Jake from '../assets/jake.webp';
+import Jessica from '../assets/jessica.webp';
 
 const People = () => {
     const [selectedEmail, setSelectedEmail] = useState(null);
@@ -65,41 +69,41 @@ const People = () => {
           projectTitle: "Current Project:"
         },
         {
-          name: "Will Boyden",
-          position: "Research Assistant",
-          image: Profile,
-          email: "will.boyden@sydney.edu.au",
-          details: "School of Medical Sciences, Faculty of Medicine and Health (FMH)",
-          projectTitle: "Current Project:"
-        },
-        {
           name: "Yifei Zhou",
           position: "PhD Student",
-          image: Profile,
+          image: Yifei,
           email: "yifei.zhou@sydney.edu.au",
           details: "School of Medical Sciences, Faculty of Medicine and Health (FMH)",
           projectTitle: "Current Project:"
         },
         {
-          name: "Ms Jia Nasir",
-          position: "Research Focused Academic",
-          image: Profile,
-          email: "reeja.nasir@sydney.edu.au",
-          details: "School of Medical Sciences, Faculty of Medicine and Health",
+          name: "Taslima Akter Eva",
+          position: "PhD Student",
+          image: Taslima,
+          email: "teva7772@sydney.edu.au",
+          details: "School of Medical Sciences, Faculty of Medicine and Health (FMH)",
           projectTitle: "Current Project:"
         },
         {
             name: "Jake Thompson",
-            position: "Honours Student",
-            image: Profile,
+            position: "PhD Student",
+            image: Jake,
             email: "jtho7038@uni.sydney.edu.au",
-            details: "School of Medical Sciences, Faculty of Medicine and Health",
+            details: "School of Medical Sciences, Faculty of Medicine and Health (FMH)",
+            projectTitle: "Current Project:"
+        },
+        {
+            name: "Jessica Raiti",
+            position: "Research Assistant",
+            image: Jessica,
+            email: "jessica.raiti@sydney.edu.au",
+            details: "School of Medical Sciences, Faculty of Medicine and Health (FMH)",
             projectTitle: "Current Project:"
         },
       ];
 
     useEffect(() => {
-        const imageUrls = [Laura, Monakesh, Claire, Angie, Yvone, Drishya, Lara, Profile];
+        const imageUrls = [Laura, Monakesh, Claire, Angie, Yvone, Drishya, Lara, Yifei, Taslima, Jake, Jessica];
         let loadedCount = 0;
 
         const preloadImages = imageUrls.map(url => {
@@ -215,7 +219,7 @@ const People = () => {
 
     if (!imagesLoaded) {
         return (
-            <div className="min-h-screen flex items-center justify-center bg-white">
+            <div className="min-h-screen flex items-center justify-center lab-page-bg">
                 <div className="w-64">
                     <div className="bg-gray-200 rounded-full h-2 mb-4">
                         <motion.div
@@ -236,7 +240,7 @@ const People = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className="min-h-screen bg-white py-12" 
+            className="min-h-screen lab-page-bg py-12" 
             id="People"
         >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -278,12 +282,32 @@ const People = () => {
                                         Faculty of Medicine and Health
                                     </p>
                                 </div>
-                                <button 
-                                    onClick={() => setSelectedEmail("laura.piccio@sydney.edu.au")}
-                                    className="inline-block bg-red-600 text-white py-2 px-4 rounded hover:bg-red-700 transition duration-300"
-                                >
-                                    Contact Laura
-                                </button>
+                                <div className="flex flex-wrap gap-3">
+                                    <button 
+                                        onClick={() => setSelectedEmail("laura.piccio@sydney.edu.au")}
+                                        className="inline-block bg-red-600 text-white py-2 px-4 rounded hover:bg-red-700 transition duration-300"
+                                    >
+                                        Contact Laura
+                                    </button>
+                                    <a
+                                        href="https://x.com/laurapiccio"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center gap-2 border border-gray-300 bg-white text-gray-800 py-2 px-4 rounded hover:border-blue-500 hover:text-blue-700 transition duration-300"
+                                    >
+                                        Twitter Profile
+                                        <ExternalLink size={16} aria-hidden="true" />
+                                    </a>
+                                    <a
+                                        href="https://www.msaustralia.org.au/researcher/laura-piccio/"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center gap-2 border border-gray-300 bg-white text-gray-800 py-2 px-4 rounded hover:border-red-600 hover:text-red-600 transition duration-300"
+                                    >
+                                        MS Australia Profile
+                                        <ExternalLink size={16} aria-hidden="true" />
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>

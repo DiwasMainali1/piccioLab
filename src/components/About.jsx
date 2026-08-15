@@ -3,19 +3,16 @@ import '@fontsource/inter/500.css';
 import '@fontsource/inter/700.css';
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import AboutOne from '../assets/About1.jpg';
-import AboutTwo from '../assets/About.jpg';
+import AboutImage from '../assets/aboutus.jpeg';
 import Network from '../assets/network.jpg';
 
 const About = () => {
     const [imagesLoaded, setImagesLoaded] = useState(false);
-    const [currentImage, setCurrentImage] = useState(AboutOne);
-    const [isTransitioning, setIsTransitioning] = useState(false);
     const [loadingProgress, setLoadingProgress] = useState(0);
   
     useEffect(() => {
       // Preload all images
-      const imageUrls = [AboutOne, AboutTwo, Network];
+      const imageUrls = [AboutImage, Network];
       let loadedCount = 0;
   
       const preloadImages = imageUrls.map(url => {
@@ -42,23 +39,9 @@ const About = () => {
       };
     }, []);
   
-    useEffect(() => {
-      if (!imagesLoaded) return;
-  
-      const interval = setInterval(() => {
-        setIsTransitioning(true);
-        setTimeout(() => {
-          setCurrentImage(prev => prev === AboutOne ? AboutTwo : AboutOne);
-          setIsTransitioning(false);
-        }, 500);
-      }, 3000);
-  
-      return () => clearInterval(interval);
-    }, [imagesLoaded]);
-  
     if (!imagesLoaded) {
       return (
-        <div className="min-h-screen flex items-center justify-center bg-white">
+        <div className="min-h-screen flex items-center justify-center lab-page-bg">
           <div className="w-64">
             <div className="bg-gray-200 rounded-full h-2 mb-4">
               <motion.div
@@ -75,16 +58,16 @@ const About = () => {
     }
   
     return (
-      <div id="home" className="bg-gray-100 min-h-screen">
+      <div id="home" className="lab-page-bg min-h-screen">
         <AnimatePresence>
           {imagesLoaded && (
             <div className="main relative h-screen">
               <motion.img
-                src={currentImage}
+                src={AboutImage}
                 alt="Background"
                 className="w-full h-full object-cover"
                 initial={{ opacity: 0 }}
-                animate={{ opacity: isTransitioning ? 0 : 1 }}
+                animate={{ opacity: 1 }}
                 transition={{ duration: 1 }}
                 loading="eager"
                 fetchPriority="high"
