@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ExternalLink } from 'lucide-react';
 import Laura from '../assets/LauraP.jpg';
@@ -105,6 +106,7 @@ const People = () => {
             name: "Dr. Francesco Certo",
             position: "MD, Neurologist & PhD student",
             image: Frank,
+            email: "francesco.certo@sydney.edu.au",
             details: "School of Medical Sciences, Faculty of Medicine and Health (FMH)"
         },
       ];
@@ -152,7 +154,7 @@ const People = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full flex items-center justify-center z-50"
+                className="font-inter fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full flex items-center justify-center z-50"
                 onClick={onClose}
             >
                 <motion.div 
@@ -195,7 +197,7 @@ const People = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full flex items-center justify-center z-50"
+                className="font-inter fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full flex items-center justify-center z-50"
                 onClick={onClose}
             >
                 <motion.div 
@@ -373,10 +375,14 @@ const People = () => {
                 </div>
             </div>
             
-            <AnimatePresence>
-                {selectedEmail && <EmailModal email={selectedEmail} onClose={() => setSelectedEmail(null)} />}
-                {selectedInfo && <InfoModal info={selectedInfo} onClose={() => setSelectedInfo(null)} />}
-            </AnimatePresence>
+            {/* Portal keeps the modals out of .lab-page-bg, whose child styles override position: fixed */}
+            {createPortal(
+                <AnimatePresence>
+                    {selectedEmail && <EmailModal email={selectedEmail} onClose={() => setSelectedEmail(null)} />}
+                    {selectedInfo && <InfoModal info={selectedInfo} onClose={() => setSelectedInfo(null)} />}
+                </AnimatePresence>,
+                document.body
+            )}
         </motion.div>
     );
 };
