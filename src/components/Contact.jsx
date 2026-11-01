@@ -33,17 +33,14 @@ const Contact = () => {
     setIsSubmitting(true);
     setSubmitStatus({ message: '', isError: false });
 
-    // Simulate API call delay
-    await new Promise(resolve => setTimeout(resolve, 1000));
-
     try {
-      // Replace with your form submission endpoint
-      const response = await fetch('https://api.example.com/contact', {
+      // Handled by Netlify Forms; the matching static form is in public/index.html
+      const response = await fetch('/', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body: JSON.stringify(formData),
+        body: new URLSearchParams({ 'form-name': 'contact', ...formData }).toString(),
       });
 
       if (response.ok) {

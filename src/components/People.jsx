@@ -12,6 +12,7 @@ import Yifei from '../assets/yifen.webp';
 import Taslima from '../assets/Taslima-Eva (1).webp';
 import Jake from '../assets/jake.webp';
 import Jessica from '../assets/jessica.webp';
+import Frank from '../assets/Frank.jpg';
 
 const People = () => {
     const [selectedEmail, setSelectedEmail] = useState(null);
@@ -100,10 +101,16 @@ const People = () => {
             details: "School of Medical Sciences, Faculty of Medicine and Health (FMH)",
             projectTitle: "Current Project:"
         },
+        {
+            name: "Dr. Francesco Certo",
+            position: "MD, Neurologist & PhD student",
+            image: Frank,
+            details: "School of Medical Sciences, Faculty of Medicine and Health (FMH)"
+        },
       ];
 
     useEffect(() => {
-        const imageUrls = [Laura, Monakesh, Claire, Angie, Yvone, Drishya, Lara, Yifei, Taslima, Jake, Jessica];
+        const imageUrls = [Laura, Monakesh, Claire, Angie, Yvone, Drishya, Lara, Yifei, Taslima, Jake, Jessica, Frank];
         let loadedCount = 0;
 
         const preloadImages = imageUrls.map(url => {
@@ -351,7 +358,7 @@ const People = () => {
                                             Contact
                                         </button>
                                     )}
-                                    {member.name !== "Dr. Claire Goldsbury" && (
+                                    {member.projectTitle && (
                                         <button 
                                             onClick={() => setSelectedInfo(member.projectTitle)}
                                             className="inline-block bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition duration-300"
